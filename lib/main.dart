@@ -7,17 +7,17 @@ void main() {
 final scaffoldKey = GlobalKey<ScaffoldState>();
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  const MainApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DefaultTabController(
-        length: 5, // The number of tabs / views.
+        length: 5,
         child: Scaffold(
           key: scaffoldKey,
           appBar: AppBar(
-            title: const Text('Où partons nous ?'),
+            title: const Text('Où partons-nous ?'),
             bottom: const TabBar(
               labelColor: Colors.pink,
               tabs: [
@@ -37,15 +37,35 @@ class MainApp extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              Center(
-                child: Image.network(
-                  'https://media.istockphoto.com/id/1150388900/fr/photo/toscane-et-ombrie-r%C3%A9gion-de-litalie.jpg?s=1024x1024&w=is&k=20&c=l_xx69T4L_ggwZIOeAtaZmeyIN0_-NweCm_LpiU_7F0=',
-                ),
+              // Image suivie du texte en bas à gauche
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.network(
+                    'https://media.istockphoto.com/id/1150388900/fr/photo/toscane-et-ombrie-r%C3%A9gion-de-litalie.jpg?s=1024x1024&w=is&k=20&c=l_xx69T4L_ggwZIOeAtaZmeyIN0_-NweCm_LpiU_7F0=',
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'Paris, France',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Text(
+                          '4 septembre, 140 euros',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              Center(child: Text('Contenu Sur l\'eau')),
-              Center(child: Text('Contenu Avec vue')),
-              Center(child: Text('Contenu Bord de mer')),
-              Center(child: Text('Contenu Ski')),
+              const Center(child: Text('Contenu Sur l\'eau')),
+              const Center(child: Text('Contenu Avec vue')),
+              const Center(child: Text('Contenu Bord de mer')),
+              const Center(child: Text('Contenu Ski')),
             ],
           ),
         ),
