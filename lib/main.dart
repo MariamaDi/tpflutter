@@ -37,7 +37,6 @@ class MainApp extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              // Ici, vous pouvez ajouter l'image à l'onglet "Campagne"
               Center(
                 child: Image.network(
                   'https://media.istockphoto.com/id/1150388900/fr/photo/toscane-et-ombrie-r%C3%A9gion-de-litalie.jpg?s=1024x1024&w=is&k=20&c=l_xx69T4L_ggwZIOeAtaZmeyIN0_-NweCm_LpiU_7F0=',
